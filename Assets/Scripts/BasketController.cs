@@ -12,7 +12,7 @@ public class BasketController : MonoBehaviour
             else 
             {
                 print("You Lose");
-                
+                //Time.timeScale(0.0f);
             }
         }
     }
