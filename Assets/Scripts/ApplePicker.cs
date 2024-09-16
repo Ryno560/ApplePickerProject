@@ -14,6 +14,7 @@ public class ApplePicker : MonoBehaviour
     public List<GameObject> basketList;
     public Text roundText;
     private int roundNumber = 1;
+    
     void Start()
     {
         basketList = new List<GameObject>();
@@ -53,7 +54,7 @@ public class ApplePicker : MonoBehaviour
         }
 
         if (basketList.Count == 0) {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("GameOver");
             roundNumber = 1;
         }
 

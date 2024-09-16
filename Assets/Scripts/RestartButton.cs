@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class StartButton : MonoBehaviour
+
+public class RestartButton : MonoBehaviour
 {
-    public void StartGame()
+    public void RestartGame()
     {
-        // Load the main game scene
         SceneManager.LoadScene("SampleScene");
-        gameObject.SetActive(false);
     }
+
 }

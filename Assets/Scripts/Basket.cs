@@ -35,7 +35,6 @@ public class Basket : MonoBehaviour
         }
         else if (collidedWith.CompareTag("RottenApple")){
             ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
-            Destroy(collidedWith);
             apScript.AppleMissed();
         }
     }
