@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class AppleTree : MonoBehaviour
 {
@@ -24,9 +24,9 @@ public class AppleTree : MonoBehaviour
     }
 
     void DropApple(){
-        GameObject apple = Instantiate<GameObject>(applePrefab);
+        GameObject apple = Instantiate<GameObject>(ReturnCollectables());
         apple.transform.position = transform.position;
-        Invoke( "DropApple", appleDropDelay);
+        Invoke("DropApple", appleDropDelay);
     }
 
     void Update()
@@ -48,5 +48,10 @@ public class AppleTree : MonoBehaviour
         } if (UnityEngine.Random.value < changeDirChance) {
             speed *= -1;
         }
+    }
+
+    GameObject ReturnCollectables(){
+        int random = Random.Range(0, 10);
+        return random % 3 == 0 ? rottenApplePrefab : applePrefab;
     }
 }
