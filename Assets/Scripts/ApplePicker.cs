@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ApplePicker : MonoBehaviour
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
+    public Text roundText;
+    private int roundNumber = 1;
     void Start()
     {
         basketList = new List<GameObject>();
@@ -23,6 +26,12 @@ public class ApplePicker : MonoBehaviour
         }
     }
 
+    private void UpdateRoundNumber()
+    {
+        roundNumber++;
+        roundText.text = "Round " + roundNumber;
+    }
+
     public void AppleMissed(){
         GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
         foreach(GameObject tempGO in appleArray) {
@@ -33,10 +42,15 @@ public class ApplePicker : MonoBehaviour
         GameObject basketGO = basketList[basketIndex];
         basketList.RemoveAt(basketIndex);
         Destroy(basketGO);
+        if (roundNumber < numBaskets) {
+            UpdateRoundNumber();
+        }
 
         if (basketList.Count == 0) {
             SceneManager.LoadScene("SampleScene");
+            roundNumber = 1;
         }
+
     }
 
     // Update is called once per frame

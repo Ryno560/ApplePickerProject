@@ -9,6 +9,8 @@ public class AppleTree : MonoBehaviour
 
     public GameObject applePrefab;
 
+    public GameObject rottenApplePrefab;
+
     public float speed = 1f;
 
     public float leftAndRightEdge = 10f;
